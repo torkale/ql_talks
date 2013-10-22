@@ -1,0 +1,18 @@
+%tr{:id => talk.id}
+  %td= talk.title
+  %td= talk.user.name
+  %td= talk.scheduled_at.try(:strftime, "%d/%m/%Y")
+  %td
+    .row
+      .col-md-2
+        .votes
+          = talk.votes_count
+      .col-md-2
+        - if current_user
+          - unless Vote.where(user_id: current_user, talk_id: talk).present?
+            %a.vote-up
+              %span.glyphicon.glyphicon-thumbs-up
+        - else
+          %a{:href => "users/sign_up"}
+            %span.glyphicon.glyphicon-thumbs-up
+
