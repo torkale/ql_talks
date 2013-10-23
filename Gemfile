@@ -44,6 +44,6 @@ group :test, :development do
   gem 'spork'
   gem 'guard-spork'
   gem 'guard-rspec'
-  gem 'guard-pow', require: false
+  gem 'guard-pow', :require => false
   gem 'guard-bundler'
 end
