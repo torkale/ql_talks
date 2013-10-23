@@ -1,0 +1,6 @@
+.col-md-6
+  = simple_form_for resource do |f|
+    .form-group
+      = f.input :title, input_html: {class: "col-md-12"}
+    .form-group
+      = f.button :submit, class: "btn btn-primary"

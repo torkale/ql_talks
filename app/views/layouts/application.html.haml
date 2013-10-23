@@ -7,6 +7,8 @@
     = csrf_meta_tags
   %body
     .container
-      %h1 Quicklaunch Tech Talks
+      = link_to root_path do
+        = image_tag 'logo.png', class: "brand"
+      %h1 Tech Talks
       .row
         = yield

@@ -3,7 +3,7 @@ QlTalks::Application.routes.draw do
   devise_for :admins
   
   devise_for :users
-  resources :talks, :only => :index do
+  resources :talks, :only => [:index, :new, :create] do
     resources :votes, :only => :create
   end
   root :to => "talks#index"
