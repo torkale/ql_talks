@@ -1,0 +1,13 @@
+.row
+  .col-md-2
+    .votes
+      = talk.votes_count
+  .col-md-2
+    - if current_user
+      - unless Vote.where(user_id: current_user, talk_id: talk).present?
+        %a.vote-up
+          %span.glyphicon.glyphicon-thumbs-up
+    - else
+      %a{:href => "users/sign_in"}
+        %span.glyphicon.glyphicon-thumbs-up
+
