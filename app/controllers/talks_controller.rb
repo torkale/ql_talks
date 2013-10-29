@@ -3,6 +3,7 @@ class TalksController < ApplicationController
   respond_to :html
 
   def index
+    collection
   end
 
   def new
@@ -25,9 +26,14 @@ class TalksController < ApplicationController
   helper_method :resource
 
   def collection
-    Talk.all.order("votes_count DESC")
+    @talks ||= Talk.all.order("votes_count DESC").over(is_over?)
   end
   helper_method :collection
+
+  def is_over?
+    params[:over].present?
+  end
+  helper_method :is_over?
 
   def talk_params
     params.require(:talk).permit(:title)

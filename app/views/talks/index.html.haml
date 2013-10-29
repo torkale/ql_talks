@@ -1,10 +1,16 @@
 = link_to new_talk_path, class: "btn btn-primary pull-right" do
   %span.glyphicon.glyphicon-plus Add
+
+%ul.nav.nav-pills
+  %li{class: (is_over?? "" : "active")}
+    = link_to 'Voting', talks_path
+  %li{class: (is_over?? "active" : "")}
+    = link_to 'Ended', talks_path(over: true)
 %table.table.table-striped
   %thead
     %th Title
     %th Offered By
     %th Date
-    %th Votes
+    %th= is_over?? "Presentation" : "Votes"
   %tbody
     = render collection

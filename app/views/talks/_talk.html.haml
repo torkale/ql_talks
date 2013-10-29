@@ -3,7 +3,9 @@
   %td= talk.user.name
   %td= talk.scheduled_at.try(:strftime, "%d/%m/%Y")
   %td
-    - if talk.scheduled_at.present?
-      %span.glyphicon.glyphicon-check
+    - if is_over?
+      - if talk.presentation.present?
+        = link_to talk.presentation do
+          %span.glyphicon.glyphicon-eye-open
     -else
       = render partial: 'vote', locals: {talk: talk}

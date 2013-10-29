@@ -1,3 +1,7 @@
 simple:
   title: "simple"
   user: jon
+over:
+  title: "over"
+  user: jon
+  scheduled_at: <%= 1.day.ago %>
