@@ -34,6 +34,7 @@ gem 'haml'
 gem 'rails_admin'
 gem 'bootstrap-sass-rails', '~> 3.0.0.3'
 gem 'simple_form'
+gem 'binding_of_caller'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
